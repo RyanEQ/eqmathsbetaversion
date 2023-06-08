@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function animateOnScroll() {
+        const element = document.getElementById('animated-element');
+        const positionFromTop = element.getBoundingClientRect().top;
+
+        const windowHeight = window.innerHeight;
+
+        if (positionFromTop - windowHeight <= 0) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateX(0)';
+                }
+                else {
+      element.style.opacity = '0';
+    }
+        }
+
+        // Attach the animateOnScroll function to the scroll event
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+    <style>
+        .lessgo{
+            width: 500px;
+            height: 500px;
+            display: flex;
+            background-color: aquamarine;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }body {
+        height: 2000px; /* Example height to create scrollable content */
+        margin: 0;
+        padding: 0;
+        }
+
+        #animated-element {
+        opacity: 0;
+        transform: translateX(300px);
+        transition: opacity 1s ease-in-out 0.25s;
+        }
+    </style>
+</head>
+<body>
+    <div id="animated-element">
+        <div class="lessgo">
+            <h1>Hello!</h1>
+        </div>
+    </div>
+</body>
+</html>
